@@ -1,0 +1,840 @@
+Configure your username on git bash
+Input your name 
+ config --global user.name "Alivelu Duvvuri"
+ global means settings for this user
+ I.e configure my sertting and change my user name to alivelu Duvvuri
+ 
+Change Email
+git config --global user.email "alivelu10@gmail.com"
+Everything saved.
+
+List all of you settings
+git config --list
+
+This will show like this:
+
+filter.lfs.required=true
+credential.helper=manager
+user.name=Alivelu Duvvuri
+user.email=alivelu10@gmail.com
+color.ui=auto
+merge.conflictstyle=diff3
+
+Want to clear everything on the screen
+Just type clear and hit Enter
+clear
+
+
+As we already know git config --list gives settings
+But if we just want only one of the settings
+You can write 
+git config user.email
+
+
+If you want to get help on anything type the following
+$ git help
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add   
+   
+Suppose if you want to know about commit in help section:
+git help commit and hit enter
+
+it opens the commit help page
+
+My Very first Github Project
+
+Create a folder Githubproject in MyDocuments Folder on your computer
+
+Our project should be at Github Project folder
+
+
+Check the default directory where Git is looking
+
+pwd and hit Enter
+
+/c/Users/alive
+
+You don't want to be in Alive folder
+
+You want to be in Githubproject folder
+
+# If you want to go bacak to home directory 
+# Change directory if you dont want the above directory
+
+cd means change directory
+tode means home
+cd tode
+
+cd ~
+
+pwd
+
+displays as following
+/c/Users/alive
+
+You want to be in Githubproject folder
+
+Going backward in folder 
+
+cd ..
+
+Lists all files
+
+$ ls
+
+Change directory again to alive
+
+cd alive
+
+Now we are in alive folder as below
+
+alive (master #) ~
+
+Change directory to documents:
+
+cd Documents
+
+cd Githubproject
+
+ls
+
+The output will be like this
+
+alive (master #) Documents
+$ cd Githubproject
+alive (master #) Githubproject
+$ ls
+'GitHub Notes.txt'
+alive (master #) Githubproject
+$
+
+To turn this Githubproject folder into Git project
+
+Git init and press enter
+
+Displays as follows
+
+Initialized empty Git repository in C:/Users/alive/Documents/Githubproject/.git/
+alive (master #) Githubproject
+
+check whether it's empty or not?
+
+ls
+
+displays as follows
+'GitHub Notes.txt'
+
+I have a text file
+
+let's delete the file and type ls
+
+ls
+
+Displays as following:
+alive (master #) Githubproject
+$ ls
+alive (master #) Githubproject
+$
+
+So it's empty now.
+
+List everything in your project including regular files and hidden stuff
+
+$ ls -la
+total 28
+drwxr-xr-x 1 alive 197609 0 Mar 25 01:11 ./
+drwxr-xr-x 1 alive 197609 0 Mar 25 01:01 ../
+drwxr-xr-x 1 alive 197609 0 Mar 25 01:06 .git/
+alive (master #) Githubproject
+
+Don't delete those hidden files
+
+clear screen
+$ clear
+
+clears the screen
+
+Creates a text file first.txt in githubprojectfolder
+
+We now have a file first.txt in Githubproject folder
+
+Let git know we made some changes to project
+
+git add .
+
+Add all of the chnages we made to our project
+
+Now it's aware that we addeda file to it
+
+But we have to commit these changes
+
+save this point in time , i.e snap shot, later when you mess you can come back
+
+git commit -m "This is our first commit"
+
+Message is necessary, it explains what you did
+
+Displays as following
+$ git commit -m "This is your first commit"
+[master (root-commit) d7fb410] This is your first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+
+ How to view your commit history
+ 
+ git log
+ 
+ This allows us to see all commits
+ 
+ Displays  as following:
+ $ git log
+commit d7fb4102aecbd618d8ec33f05f9a3e95fa180583 (HEAD -> master)
+Author: Alivelu Duvvuri <alivelu10@gmail.com>
+Date:   Mon Mar 25 01:28:33 2019 -0700
+
+If I want to see commits only from 1 person
+
+git log --author="Alivelu"
+
+Displays as following$ git log --author="Alivelu"
+commit d7fb4102aecbd618d8ec33f05f9a3e95fa180583 (HEAD -> master)
+Author: Alivelu Duvvuri <alivelu10@gmail.com>
+Date:   Mon Mar 25 01:28:33 2019 -0700
+
+    This is your first commit
+
+If you typed a person doesn't exist:
+
+git log --author="Wendy"
+
+As there is no author displays like this
+alive (master) Githubproject
+$ git log --author="Wendy"
+alive (master) Githubproject
+
+git status
+
+displays like this
+alive (master) Githubproject
+
+status command tells you if there are any changes
+
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+create 2 files and save in Github project folder i.e second.txt, third.txt
+
+first.txt is commited
+second.txt and third.txt are not commited yet
+
+type status
+
+Displays as following
+
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        second.txt
+        third.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+alive (master) Githubproject
+
+So that means git is  tracking not commited files second.txt and thitrd.txt
+
+git add second.txt
+
+Adding it to the staging area
+
+working copy > staging area  > repository
+
+When we create file is on local computer i.e working copy
+
+whenever we add it it goes to staging area.
+
+whenever we commit it goes to repository
+
+displays as following
+
+alive (master) Githubproject
+$ git add second.txt
+alive (master +) Githubproject
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        third.txt
+
+alive (master +) Githubproject
+
+
+To commit second file to repository
+alive (master +) Githubproject
+$ git commit -m "Adding the second file to the repository"
+
+Displays as following
+
+
+alive (master +) Githubproject
+$ git commit -m "Adding the second file to the repository"
+[master 00d1f38] Adding the second file to the repository
+ 1 file changed, 1 insertion(+)
+ create mode 100644 second.txt
+ 
+ git log
+ 
+ Displays as following
+ 
+ $ git log
+commit 00d1f38a119d67e95ca59021885da9e475c47aeb (HEAD -> master)
+Author: Alivelu Duvvuri <alivelu10@gmail.com>
+Date:   Mon Mar 25 01:50:14 2019 -0700
+
+    Adding the second file to the repository
+
+commit d7fb4102aecbd618d8ec33f05f9a3e95fa180583
+Author: Alivelu Duvvuri <alivelu10@gmail.com>
+Date:   Mon Mar 25 01:28:33 2019 -0700
+
+So from the above we can say that We now have 2 files
+
+git status
+
+Displays as following
+ 
+alive (master) Githubproject
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        third.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+alive (master) Githubproject
+
+git add third.txt
+
+the above is now in staging area
+So commit the third.txt
+
+git commit -m "The thirs file is now joining it's friends"
+
+Displays as following
+alive (master +) Githubproject
+$ git commit -m "The third file is now joining it's friends"
+[master d93c2f7] The third file is now joining it's friends
+ 1 file changed, 1 insertion(+)
+ create mode 100644 third.txt
+ 
+ Now all of our files are in repository.
+ 
+ alive (master) Githubproject
+$ git status
+On branch master
+nothing to commit, working tree clean
+alive (master) Githubproject
+
+
+How to edit files:
+
+Edit the text of first.txt and save the text
+git status
+
+Displays as following$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   first.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+alive (master *) Githubproject
+
+So as said above we modified
+
+git add first.txt
+
+Added to staging area
+
+git commit -m "Modified the first file"
+
+Displays as following
+
+$ git commit -m "Modified the first file"
+[master 1bee132] Modified the first file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alive (master) Githubproject
+
+1 insertion meand added new one
+1  deletion meand old one file)
+
+git status
+alive (master) Githubproject
+$ git status
+On branch master
+nothing to commit, working tree clean
+alive (master) Githubproject
+
+git status
+
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   second.txt
+        modified:   third.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+alive (master *) Githubproject
+
+To add multiple files to staging area "." means all
+$ git add .
+alive (master +) Githubproject
+
+git commit -m " This is how you can edit multiple files"
+
+Changes are differences 
+
+# How to add on web Github
+
+…or create a new repository on the command line
+echo "# Githubproject" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/alivelu/Githubproject.git
+git push -u origin master
+
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/alivelu/Githubproject.git
+git push -u origin master
+
+
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+I want to know exactly the changes i am doing
+
+changed the text of first.txt
+
+git status
+
+Displays as following
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   first.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+alive (master *) Githubproject
+
+How to view what exactly is modified or different
+
+git diff
+
+$ git diff
+diff --git a/first.txt b/first.txt
+index 644044c..eaf67b1 100644
+--- a/first.txt
++++ b/first.txt
+@@ -1 +1 @@
+-I am Ham and  some people call me Sam . This is my first commit
+\ No newline at end of file
++Alivelu is the best dude ever
+\ No newline at end of file
+alive (master *) Githubproject
+
+I want to commit to main project
+git add first.txt
+
+# We are commiting our changes now
+
+git commit -m "We are commiting our changes"
+alive (master +) Githubproject
+$ Git commit -m "We are commiting our changes"
+[master 6b2fed8] We are commiting our changes
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alive (master) Githubproject
+
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+alive (master) Githubproject
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/alivelu/Githubproject.git
+   738d71c..6b2fed8  master -> master
+alive (master) Githubproject
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+tosee if any differences
+git diff
+
+Displays as following
+alive (master) Githubproject
+$ git diff
+alive (master) Githubproject
+$
+
+So no changes or differences
+
+Change the text of the second and third text files
+That means we changes more than 1 file.
+
+git status
+Displays as following
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   second.txt
+        modified:   third.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+alive (master *) Githubproject
+
+git diff
+
+$ git diff
+diff --git a/second.txt b/second.txt
+index 0191aab..76b8665 100644
+--- a/second.txt
++++ b/second.txt
+@@ -1 +1 @@
+-Changes to second
+\ No newline at end of file
++These are changes to the second fileeeeeee
+\ No newline at end of file
+diff --git a/third.txt b/third.txt
+index 8c39527..fe899e2 100644
+--- a/third.txt
++++ b/third.txt
+@@ -1 +1 @@
+-changes to third
+\ No newline at end of file
++These are changes to the third file..
+\ No newline at end of file
+
+one by one file by file says what is changed in above code.
+
+Staging
+alive (master *) Githubproject
+$ git add .
+alive (master +) Githubproject
+$
+
+Commiting
+$ git commit -m "Here are some awesome chnages to two files"
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+alive (master) Githubproject
+
+alive (master) Githubproject
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 415 bytes | 415.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To https://github.com/alivelu/Githubproject.git
+   6b2fed8..42b72c5  master -> master
+alive (master) Githubproject
+
+alive (master) Githubproject
+$ git diff
+alive (master) Githubproject
+$
+
+there is nodifferences
+
+Comparing a Staging area with a repository
+
+alive (master) Githubproject
+$ git diff
+diff --git a/first.txt b/first.txt
+index eaf67b1..7b6d7c5 100644
+--- a/first.txt
++++ b/first.txt
+@@ -1 +1 @@
+-Alivelu is the best dude ever
+\ No newline at end of file
++Hamblaster.
+\ No newline at end of file
+alive (master *) Githubproject
+
+alive (master *) Githubproject
+$ git add first.txt
+Added to staging area
+
+alive (master +) Githubproject
+$ git diff
+alive (master +) Githubproject
+$
+We didnt commit and diff is not showing file in staging area as above
+
+So to see whats in staged area.
+$ git diff --staged
+diff --git a/first.txt b/first.txt
+index eaf67b1..7b6d7c5 100644
+--- a/first.txt
++++ b/first.txt
+@@ -1 +1 @@
+-Alivelu is the best dude ever
+\ No newline at end of file
++Hamblaster.
+\ No newline at end of file
+alive (master +) Githubproject
+
+To commit
+$ git commit -m " Made some really dumb changes"
+[master 5daa981]  Made some really dumb changes
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alive (master) Githubproject
+
+How to delete files:
+
+Delete the third.txt
+
+git rm third.txt
+$ git rm third.txt
+rm 'third.txt'
+alive (master +) Githubproject
+
+above code removes on repository and local folder
+
+we didnt commit changes but deleted the file
+
+So commit it.
+
+alive (master +) Githubproject
+$ git commit -m " This is a point in time where we deleted third.txt"
+[master 6243208]  This is a point in time where we deleted third.txt
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 third.txt
+alive (master) Githubproject
+
+now commited
+
+whenever we want comeback to the point time when we deleted the file by accident
+
+publish on web
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 533 bytes | 533.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/alivelu/Githubproject.git
+   42b72c5..6243208  master -> master
+
+How to move and rename files
+
+rename firts.txt to home.txt
+git status
+
+alive (master) Githubproject
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    first.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        home.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+alive (master *) Githubproject
+$
+
+its saying we deleted first.txt and added new file home.txt as in the above
+
+alive (master *) Githubproject
+$ git add home.txt
+alive (master *+) Githubproject
+
+Added home.txt to staging
+
+$ git rm first.txt
+rm 'first.txt'
+alive (master +) Githubproject
+
+Removed first.txt
+
+Now see git status
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    first.txt -> home.txt
+
+It's saying as renmaed the file, not deleted
+
+commit it
+alive (master +) Githubproject
+$ git commit -m "renamed first.txt to home.txt"
+[master 11fad82] renamed first.txt to home.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename first.txt => home.txt (100%)
+alive (master) Githubproject
+
+mv means move i.e renaming in git
+
+alive (master) Githubproject
+$ git mv second.txt pudding.txt
+alive (master +) Githubproject
+
+The second.txt file chnaged to putting.txt in local folder on the computer
+
+now make a new folder lovenotes and move pudding file in it
+
+move pudding.txt too love notes and rename as patty.txt
+
+alive (master *+) Githubproject
+$ git mv pudding.txt lovenotes/patty.txt
+alive (master +) Githubproject
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    second.txt -> lovenotes/patty.txt
+
+alive (master +) Githubproject
+
+so it's moved and renamed
+
+commit it
+
+alive (master +) Githubproject
+$ git commit -m "renamed file and put it in love notes folder"
+[master 058e7be] renamed file and put it in love notes folder
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename second.txt => lovenotes/patty.txt (100%)
+alive (master) Githubproject
+
+Working with actual website
+
+How  to commit directly to website
+
+git commit -am "cleanup the comments"
+
+gives information of whats deleted
+
+its gonna grab everything in the working copy
+
+only helpful in editing modifying files
+
+-am skips staging area directly commits
+
+
+#Undo changes 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Resorces:
+ NewBoston Youtube tutorials.
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
